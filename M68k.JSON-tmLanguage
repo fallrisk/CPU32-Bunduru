@@ -1,0 +1,75 @@
+{
+  /**
+   * Made by Justin Watson on 2014.03.31 ST3 build 3059
+   * 
+   * This is syntax highlighting file for M68k processors.
+   * First I installed AAAPackageDev using the Sublime Text 3 package manager.
+   * Then I made the M68k.JSON-tmLanguage file. I then opened the JSON-tmLanguage
+   * file and an example of the source. I would add a pattern to the JSON-tmLanguage
+   * file and then hit F7 and select "Convert to Propert List". I would then 
+   * go to the example source and hit ctrl+shift+p to set the syntax. Then I 
+   * would confirm it visually. I made sure to use the language grammar defined
+   * by textmate so that my color theme would be applied.
+   * 
+   * Important links on how to make this file are....
+   * (http://docs.sublimetext.info/en/latest/extensibility/syntaxdefs.html)
+   * (http://manual.macromates.com/en/language_grammars#language_grammars)
+   * I haven't yet figured out how to add the sytax to the list that is brought
+   * up when the bottom right button is pressed.
+   */
+  "name": "M68k",
+  "scopeName": "source.msixtyeightk",
+  "fileTypes": ["X68"],
+  "patterns": [
+    {
+      "match": "(\\*.*$|\\;.*$)",
+      "name": "comment.msixtyeightk"
+    },
+    {
+      "match": "(dc|dcb|ds|end|equ|fail|include|incbin|list|nolist|memory|offset|opt|org|page|reg|section|set|simhalt)",
+      "name": "keyword.operator.asmdirectives.msixtyeightk",
+      "comment": "Assembler Directives"
+    },
+    {
+      "match": "(exg|lea|link|move[ampq]?|pea|swap|unlk)(\\.[lLbBwW])?",
+      "name": "keyword.control.datamovement.msixtyeightk",
+      "comment": "Instruction Summary: Data Movement"
+    },
+    {
+      "match": "(add[aiqx]?|clr|cmp[aim]?|div[su]?|ext|mul[su]?|neg[x]?|sub[aiqx]?|tas|tst)(\\.[lLbBwW])?",
+      "name": "keyword.control.integerarithmetic.msixtyeightk",
+      "comment": "Instruction Summary: Integer Arithmetics"
+    },
+    {
+      "match": "(and[i]?|or[i]?|eor[i]?|not)(\\.[lLbBwW])?",
+      "name": "keyword.control.logicaloperators.msixtyeightk",
+      "comment": "Instruction Summary: Logical Operators"
+    },
+    {
+      "match": "(as[lr]|ls[lr]|ro[lr]|rox[lr])(\\.[lLbBwW])?",
+      "name": "keyword.control.shiftrotation.msixtyeightk",
+      "comment": "Instruction Summary: Shift and Rotation"
+    },
+    {
+      "match": "(btst|bset|bclr|bchg)(\\.[lLbBwW])?",
+      "name": "keyword.control.bitmanipulation.msixtyeightk",
+      "comment": "Instruction Summary: Bit Manipulation"
+    },
+    {
+      "match": "(bcc|bcs|beq|bne|bge|bgt|bhi|ble|bls|blt|bmi|bpl|bvc|bvs|bra|bsr|jsr|rts|jmp|rtr)(\\.[lLbBwW])?",
+      "name": "keyword.control.programcontrol.msixtyeightk",
+      "comment": "Instruction Summary: Program Control"
+    },
+    {
+      "match": "(reset|rte|stop|chk|trapv|trap)",
+      "name": "keyword.control.shiftrotation.msixtyeightk",
+      "comment": "Instruction Summary: System Control"
+    },
+    {
+      "match": "(illegal|nop)",
+      "name": "keyword.control.shiftrotation.msixtyeightk",
+      "comment": "Instruction Summary: Other"
+    }
+  ],
+  "uuid": "1ecf7cd0-b930-11e3-a5e2-0800200c9a66"
+}
