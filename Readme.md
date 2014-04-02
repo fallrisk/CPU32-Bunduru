@@ -3,7 +3,7 @@ This is syntax highlighting in for CPU32 instruction set on Easy68k. It could
 also be used for Easy68k.
 
 Here is an image of what it looks like with some assembly code.
-![alt Sample](https://raw.github.com/fallrisk/CPU32-Bunduru/Screenshot 2014-03-31 19.37.59.png)
+![alt Sample](./Screenshot 2014-03-31 19.37.59.png)
 
 ## Contributing
 
