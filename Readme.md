@@ -8,7 +8,7 @@ Here is an image of what it looks like with some assembly code.
 ## Contributing
 
 You can send pull requests via GitHub. Do *not* edit the
-`M68k-Assembly.tmLanguage` file directly. Edit the
-`M68k-Assembly.JSON-tmLanguage` file instead and build the `.tmLanguage` file
+`CPU32.tmLanguage` file directly. Edit the
+`CPU32.JSON-tmLanguage` file instead and build the `.tmLanguage` file
 from it using the _JSON to Property List_ build tool in
 [AAAPackageDev](https://github.com/SublimeText/AAAPackageDev).
