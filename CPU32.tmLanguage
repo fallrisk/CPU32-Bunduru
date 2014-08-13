@@ -5,6 +5,7 @@
 	<key>fileTypes</key>
 	<array>
 		<string>X68</string>
+		<string>s</string>
 	</array>
 	<key>name</key>
 	<string>CPU32</string>
@@ -12,21 +13,29 @@
 	<array>
 		<dict>
 			<key>match</key>
+			<string>"[^"]*"</string>
+			<key>name</key>
+			<string>string.quoted.single.cpu32</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(\*.*$|\;.*$)</string>
 			<key>name</key>
 			<string>comment.cpu32</string>
 		</dict>
 		<dict>
+			<key>comment</key>
+			<string>Data Registers and Address Registers</string>
 			<key>match</key>
-			<string>'[^']*'</string>
+			<string>\b([dD]|[aA])[0-7]\b</string>
 			<key>name</key>
-			<string>string.quoted.single.cpu32</string>
+			<string>storage.type.cpu32</string>
 		</dict>
 		<dict>
 			<key>comment</key>
 			<string>Assembler Directives</string>
 			<key>match</key>
-			<string>(?i)(dc|dcb|ds|end|equ|fail|include|incbin|list|nolist|memory|offset|opt|org|page|reg|section|set|simhalt)(\.[lLbBwW])?</string>
+			<string>(?i)\b(dc|dcb|ds|endc|endm|textequ|equ|else|elseif|fail|global|ifeq|ifne|include|incbin|list|nolist|macro|memory|mexit|offset|opt|org|page|reg|section|set|simhalt|text)(\.[lLbBwW])?\b</string>
 			<key>name</key>
 			<string>storage.type.asmdirectives.cpu32</string>
 		</dict>
@@ -34,7 +43,7 @@
 			<key>comment</key>
 			<string>Instruction Summary: Data Movement</string>
 			<key>match</key>
-			<string>(?i)(exg|lea|link|move[ampq]?|pea|swap|unlk)(\.[lLbBwW])?</string>
+			<string>(?i)\b(exg|lea|link|move[ampq]?|pea|swap|unlk)(\.[lLbBwW])?\b</string>
 			<key>name</key>
 			<string>keyword.control.datamovement.cpu32</string>
 		</dict>
@@ -42,7 +51,7 @@
 			<key>comment</key>
 			<string>Instruction Summary: Integer Arithmetics</string>
 			<key>match</key>
-			<string>(?i)(add[aiqx]?|clr|cmp[aim]?|div[su]?|ext|mul[su]?|neg[x]?|sub[aiqx]?|tas|tst)(\.[lLbBwW])?</string>
+			<string>(?i)\b(add[aiqx]?|clr|cmp[aim]?|div[su]?|ext|mul[su]?|neg[x]?|sub[aiqx]?|tas|tst)(\.[lLbBwW])?\b</string>
 			<key>name</key>
 			<string>keyword.control.integerarithmetic.cpu32</string>
 		</dict>
@@ -50,7 +59,7 @@
 			<key>comment</key>
 			<string>Instruction Summary: Logical Operators</string>
 			<key>match</key>
-			<string>(?i)(and[i]?|or[i]?|eor[i]?|not)(\.[lLbBwW])?</string>
+			<string>(?i)\b(and[i]?|or[i]?|eor[i]?|not)(\.[lLbBwW])?\b</string>
 			<key>name</key>
 			<string>keyword.control.logicaloperators.cpu32</string>
 		</dict>
@@ -58,7 +67,7 @@
 			<key>comment</key>
 			<string>Instruction Summary: Shift and Rotation</string>
 			<key>match</key>
-			<string>(?i)(as[lr]|ls[lr]|ro[lr]|rox[lr])(\.[lLbBwW])?</string>
+			<string>(?i)\b(as[lr]|ls[lr]|ro[lr]|rox[lr])(\.[lLbBwW])?\b</string>
 			<key>name</key>
 			<string>keyword.control.shiftrotation.cpu32</string>
 		</dict>
@@ -66,7 +75,7 @@
 			<key>comment</key>
 			<string>Instruction Summary: Bit Manipulation</string>
 			<key>match</key>
-			<string>(?i)(btst|bset|bclr|bchg)(\.[lLbBwW])?</string>
+			<string>(?i)\b(btst|bset|bclr|bchg)(\.[lLbBwW])?\b</string>
 			<key>name</key>
 			<string>keyword.control.bitmanipulation.cpu32</string>
 		</dict>
@@ -74,23 +83,15 @@
 			<key>comment</key>
 			<string>Instruction Summary: Program Control</string>
 			<key>match</key>
-			<string>(?i)(bcc|bcs|beq|bne|bge|bgt|bhi|ble|bls|blt|bmi|bpl|bvc|bvs|bra|bsr|jsr|rts|jmp|rtr)(\.[lLbBwW])?</string>
+			<string>(?i)\b(bcc|bcs|beq|bne|bge|bgt|bhi|ble|bls|blt|bmi|bpl|bvc|bvs|bra|bsr|jsr|rts|jmp|rtr)(\.[lLbBwWsS])?\b</string>
 			<key>name</key>
 			<string>keyword.control.programcontrol.cpu32</string>
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>Instruction Summary: System Control</string>
+			<string>Instruction Summary: System Control and Other</string>
 			<key>match</key>
-			<string>(?i)(reset|rte|stop|chk|trapv|trap)</string>
-			<key>name</key>
-			<string>keyword.control.shiftrotation.cpu32</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>Instruction Summary: Other</string>
-			<key>match</key>
-			<string>(?i)(illegal|nop)</string>
+			<string>(?i)\b(reset|rte|stop|chk|trapv|trap|illegal|nop)\b</string>
 			<key>name</key>
 			<string>keyword.control.shiftrotation.cpu32</string>
 		</dict>
@@ -98,7 +99,7 @@
 			<key>comment</key>
 			<string>Labels</string>
 			<key>match</key>
-			<string>^[A-Za-z0-9]{2,8}:</string>
+			<string>^[A-Za-z0-9]{2,20}:</string>
 			<key>name</key>
 			<string>entity.name.function.label.cpu32</string>
 		</dict>
@@ -106,17 +107,9 @@
 			<key>comment</key>
 			<string>Numeric Values</string>
 			<key>match</key>
-			<string>(\#[0-9]*|\#\$[0-9a-f]*|\#\%[01]*|\$[0-9a-f]*)</string>
+			<string>(\#[0-9]*|\#\$[0-9A-Fa-f]*|\#\%[01]*|\$[0-9A-Fa-f]+)</string>
 			<key>name</key>
 			<string>constant.numeric.cpu32</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>Data Registers and Address Registers</string>
-			<key>match</key>
-			<string>([dD]|[aA])[0-7]</string>
-			<key>name</key>
-			<string>storage.type.cpu32</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
